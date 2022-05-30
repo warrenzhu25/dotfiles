@@ -1,0 +1,82 @@
+" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+set idearefactormode=keep
+set ideajoin
+set argtextobj
+set surround
+set easymotion
+set showmode
+set showcmd
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:](:),<:>"
+
+" Copy to system clipboard as well
+set clipboard+=unnamed
+set clipboard+=ideaput
+nnoremap gvr :action IdeaVim.ReloadVimRc.reload<CR>
+
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+" intellij built in key map
+
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>c :action GotoClass<CR>
+"nnoremap <leader>e :action SearchEverywhere<CR>
+"nnoremap <leader>f :action FindInPath<CR>
+nnoremap <leader>gc :action Git.CompareWithBranch<CR>
+nnoremap <leader>gr :action Git.ResolveConflicts<CR>
+nnoremap <leader>ga :action Annotate<CR>
+nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap ge :action RecentFiles<CR>
+"toggle track vim action Id
+nnoremap ta :action VimFindActionIdAction<CR>
+" Navigation
+nmap <leader>L :action RecentLocations<cr>
+nmap <leader>u :action FindUsages<cr>
+nmap <leader>C :action CallHierarchy<cr>
+nmap <leader>f :action GotoFile<cr>
+nmap <leader>c :action GotoClass<cr>
+nmap <leader>s :action GotoSymbol<cr>
+nmap <leader>b :action GotoImplementation<cr>
+nmap <leader>U :action GotoSuperMethod<cr>
+nnoremap gr :action RecentFiles<cr>
+nnoremap gb :action Back<cr>
+nmap <leader>t :action GotoTest<cr>
+nnoremap ga :action GotoAction<cr>
+
+" navigation
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gl :action JumpToLastChange<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gf :action FileStructurePopup<CR>
+
+" code actions
+nnoremap U :action FindUsages<CR>
+nnoremap R :action RenameElement<CR>
+nnoremap == :action ReformatCode<CR>
+vnoremap = :action ReformatCode<CR>
+nnoremap -- :action OptimizeImports<CR>
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
+" Errors
+nmap <leader>x :action GotoNextError<cr>
+nmap <leader>X :action GotoPreviousError<cr>
+
+" Refactorings
+map <leader>ms <Plug>(easymotion-s)
+map <leader>mf <Plug>(easymotion-f)
+
+" Usefuls Quick actions
+" Find more examples here: https://jb.gg/share-ideavimrc
